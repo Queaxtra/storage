@@ -13,7 +13,7 @@
     }
 </script>
 
-<div class="ml-auto mr-auto left-0 right-0 bg-[#151515] w-80 md:w-96 lg:w-96 h-[17.5rem] md:h-72 lg:h-72 rounded relative mt-80 md:mt-96 lg:mt-72 text-center text-white/70 transition-all duration-300">
+<div class="ml-auto mr-auto left-0 right-0 bg-[#151515] w-80 md:w-96 lg:w-96 h-[17.5rem] md:h-72 lg:h-72 rounded relative mt-52 md:mt-96 lg:mt-72 text-center text-white/70 transition-all duration-300">
     <img src="https://imgtr.ee/images/2023/09/12/e9b730afaba66210681dba95e245281d.png" alt="Logo" class="w-20 ml-auto mr-auto left-0 right-0 absolute mt-3">
 
     <div>

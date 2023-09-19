@@ -70,7 +70,7 @@
         <button on:click={route} class="relative p-2 px-7 bg-[#191919] rounded mt-5 text-sm transition-all duration-300"><i class="ri-folder-fill relative top-0.5"></i></button>
     </div>
     <form on:submit={handleSubmit}>
-        <div class="transition-all duration-300 bg-[#191919]/20 hover:bg-[#191919]/50 border-2 border-dashed border-[#212121] relative w-80 md:w-[32rem] lg:w-[32rem] rounded mt-5">
+        <div class="transition-all duration-300 bg-[#191919]/20 hover:bg-[#191919]/50 border-2 border-dashed border-[#212121] relative w-72 md:w-[32rem] lg:w-[32rem] rounded mt-5">
         <input type="file" accept="image/*" on:change={handleFileChange} multiple class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
         <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
             {#if selectedFile}
