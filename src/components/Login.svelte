@@ -1,5 +1,6 @@
 <script>
     import pb from "$lib/pocketbase";
+    import toast, { Toaster } from 'svelte-french-toast';
 
     let adminEmail = "";
     let adminPassword = "";
@@ -8,17 +9,25 @@
         await pb.collection("users").authWithPassword(adminEmail, adminPassword).then((res) => {
             window.location.href = "/panel";
         }).catch((err) => {
-            console.log(err);
+            toast.error("Email and password does not match.", {
+                position: 'top-right',
+                style: "background-color: #191919; color: #ffffff;"
+            });
         });
     }
 </script>
 
-<div class="ml-auto mr-auto left-0 right-0 bg-[#151515] w-80 md:w-96 lg:w-96 h-[17.5rem] md:h-72 lg:h-72 rounded relative mt-52 md:mt-96 lg:mt-72 text-center text-white/70 transition-all duration-300">
-    <img src="https://imgtr.ee/images/2023/09/12/e9b730afaba66210681dba95e245281d.png" alt="Logo" class="w-20 ml-auto mr-auto left-0 right-0 absolute mt-3">
-
-    <div>
-        <input bind:value={adminEmail} class="p-2 px-4 md:px-5 lg:px-5 bg-[#191919] rounded mt-24 w-72 md:w-80 lg:w-80 placeholder:text-[#353535] text-sm md:text-base lg:text-base transition-all duration-300" type="email" placeholder="Enter a admin email">
-        <input bind:value={adminPassword} class="p-2 px-4 md:px-5 lg:px-5 bg-[#191919] rounded mt-5 w-72 md:w-80 lg:w-80 placeholder:text-[#353535] text-sm md:text-base lg:text-base transition-all duration-300" type="password" placeholder="Enter a admin password">
+<Toaster />
+<div class="m-10 md:m-20">
+    <h2 class="text-2xl md:text-4xl transition-all duration-300">Login</h2>
+    <p class="my-2 text-sm md:text-base text-white/70 font-thin"><i class="ri-question-line relative top-0.5 transition-all duration-300"></i> Please enter email and password.</p>
+    <div class="my-3">
+        <input bind:value={adminEmail} type="email" class="p-2 md:p-1.5 my-2 md:my-0 lg:my-0 bg-[#191919] rounded relative mx-1 -left-1 px-5 md:px-5 lg:px-5 placeholder:text-[#3e3e3e] transition-all duration-300 text-white/70 font-thin" placeholder="Email">
+        <input bind:value={adminPassword} type="password" class="p-2 md:p-1.5 my-2 md:my-0 lg:my-0 bg-[#191919] rounded relative mx-1 -left-1 px-5 md:px-5 lg:px-5 placeholder:text-[#3e3e3e] transition-all duration-300 text-white/70 font-thin" placeholder="Password">
     </div>
-    <button on:click={loginAdmin} class="relative p-2 px-14 bg-[#191919] rounded mt-5 text-sm md:text-base lg:text-base transition-all duration-300">Login</button>
+    {#if !adminEmail || !adminPassword}
+    <button disabled class="p-2 md:p-1.5 px-8 md:px-10 bg-[#191919] rounded text-sm md:text-base font-thin opacity-50 transition-all duration-300">Login</button>
+    {:else}
+    <button on:click={loginAdmin} class="p-2 md:p-1.5 px-8 md:px-10 bg-[#191919] rounded text-sm md:text-base font-thin transition-all duration-300">Login</button>
+    {/if}
 </div>

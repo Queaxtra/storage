@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Icon from '@iconify/svelte';
     import pb from "$lib/pocketbase";
     import toast, { Toaster } from 'svelte-french-toast';
+    import Footer from "../../components/Footer.svelte";
 
     let userValid = pb.authStore.isValid;
     let username = pb.authStore.model?.username;
@@ -62,29 +62,33 @@
 
 {#if userValid === true}
 <Toaster />
-<div class="relative ml-4 md:ml-20 lg:ml-20 mt-20 text-white/70">
-    <h2 class="text-3xl">Hello, {username}</h2>
-    <p class="text-base text-white/50">👋 It's good to see you!</p>
+<div class="m-10 md:m-20">
+    <h2 class="text-2xl md:text-4xl transition-all duration-300">Hi, {username}</h2>
+    <p class="my-2 text-sm md:text-base text-white/70 font-thin"><i class="ri-eye-2-line relative top-0.5 transition-all duration-300"></i> Good to see you.</p>
     <div>
-        <button on:click={userLogout} class="relative p-2 px-12 bg-[#191919] rounded mt-5 text-sm transition-all duration-300"><i class="ri-logout-box-r-line relative top-0.5"></i> Logout</button>
-        <button on:click={route} class="relative p-2 px-7 bg-[#191919] rounded mt-5 text-sm transition-all duration-300"><i class="ri-folder-fill relative top-0.5"></i></button>
+        <button on:click={userLogout} class="p-2 md:p-1.5 px-8 md:px-10 bg-[#191919] rounded text-sm md:text-base font-thin transition-all duration-300">Logout</button>
+        <button on:click={route} class="p-2 md:p-1.5 px-8 md:px-10 bg-[#191919] rounded text-sm md:text-base font-thin transition-all duration-300">Files</button>
     </div>
     <form on:submit={handleSubmit}>
-        <div class="transition-all duration-300 bg-[#191919]/20 hover:bg-[#191919]/50 border-2 border-dashed border-[#212121] relative w-72 md:w-[32rem] lg:w-[32rem] rounded mt-5">
-        <input type="file" accept="image/*" on:change={handleFileChange} multiple class="cursor-pointer relative block opacity-0 w-full h-full p-20 z-50">
-        <div class="text-center p-10 absolute top-0 right-0 left-0 m-auto">
-            {#if selectedFile}
-            <p class="text-white/50 mt-8 text-2xl">{selectedFile.name}</p>
-            <button type="submit" class="relative p-2 px-7 bg-[#191919] rounded mt-20 md:mt-28 lg:mt-28 text-sm transition-all duration-300"><i class="ri-upload-2-line relative top-0.5"></i> Upload</button>
-            {:else}
-            <h2 class="text-2xl mt-8 text-white/30">Drag or select the file!</h2>
-            <button disabled class="opacity-50 relative p-2 px-7 bg-[#191919] rounded mt-20 md:mt-28 lg:mt-28 text-sm transition-all duration-300"><i class="ri-upload-2-line relative top-0.5"></i> Upload</button>
-            {/if}
+        <div class="transition-all duration-300 bg-[#191919]/20 hover:bg-[#191919]/50 border-2 border-dashed border-[#212121] relative w-full md:w-[32rem] lg:w-[32rem] rounded mt-5">
+            <input type="file" accept="image/*" on:change={handleFileChange} multiple class="cursor-pointer relative block opacity-0 w-full h-full p-4 md:p-6 z-50">
+            <div class="relative text-white/70 text-center -top-7 md:-top-9 font-thin text-sm md:text-base">
+                {#if selectedFile}
+                <h2>{selectedFile.name}</h2>
+                {:else}
+                <h2>Drag and drop your file here</h2>
+                {/if}
+            </div>
         </div>
-    </div>
+        {#if !selectedFile}
+        <button disabled class="p-2 md:p-1.5 px-8 md:px-10 bg-[#191919] rounded text-sm md:text-base font-thin transition-all duration-300 my-5 opacity-50">Upload</button>
+        {:else}
+        <button type="submit" class="p-2 md:p-1.5 px-8 md:px-10 bg-[#191919] rounded text-sm md:text-base font-thin transition-all duration-300 my-5">Upload</button>
+        {/if}
     </form>
 </div>
 
+<Footer />
 {:else}
 <div class="text-center text-white/70 mt-96">
     <h2 class="text-3xl text-red-500/70">401: Unauthorized</h2>

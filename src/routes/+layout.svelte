@@ -5,11 +5,11 @@
 <slot />
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;500&display=swap');
 
   :global(body) {
     background-color: #111111;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
     color: white;
   }
 </style>
