@@ -18,7 +18,7 @@
 </script>
 
 <Toaster />
-<div class="m-10 md:m-20">
+<div class="mx-7 my-20 md:m-20">
     <h2 class="text-2xl md:text-4xl transition-all duration-300">Login</h2>
     <p class="my-2 text-sm md:text-base text-white/70 font-thin"><i class="ri-question-line relative top-0.5 transition-all duration-300"></i> Please enter email and password.</p>
     <div class="my-3">

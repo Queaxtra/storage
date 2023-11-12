@@ -62,7 +62,7 @@
 
 {#if userValid === true}
 <Toaster />
-<div class="m-10 md:m-20">
+<div class="mx-7 my-20 md:m-20">
     <h2 class="text-2xl md:text-4xl transition-all duration-300">Hi, {username}</h2>
     <p class="my-2 text-sm md:text-base text-white/70 font-thin"><i class="ri-eye-2-line relative top-0.5 transition-all duration-300"></i> Good to see you.</p>
     <div>
