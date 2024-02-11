@@ -26,4 +26,4 @@ It is a photo storage site built with Pocketbase and Svelte.
 - In the panel that opens, do what I did.
 ![Image](https://cdn.discordapp.com/attachments/1136591322208272385/1151876874151145552/brave_HG4UOoVg24.png)
 
-- That's all there is to it. Now you can open the project and try it. If you get an error in the project, please contact me via [Discord](https://discord.com/users/825370766999552011) or [Telegram](t.me/queaxtra)
+- That's all there is to it. Now you can open the project and try it. If you get an error in the project, please contact me via [Discord](https://discord.com/users/825370766999552011) or [Telegram](https://t.me/queaxtra)
